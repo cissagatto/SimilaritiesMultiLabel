@@ -1,0 +1,9 @@
+Config, Value
+Dataset_Path, /home/elaine/Datasets
+Temporary_Path, /dev/shm/m-j-nuswide_VLAD
+Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
+Similarity, jaccard
+Dataset_Name, nuswide_VLAD
+Number_Dataset, 51
+Number_Folds, 10
+Number_Cores, 10

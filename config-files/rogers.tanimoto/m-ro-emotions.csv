@@ -1,0 +1,9 @@
+Config, Value
+Dataset_Path, /home/elaine/Datasets
+Temporary_Path, /dev/shm/m-ro-emotions
+Similarities_Path, /home/elaine/Partitions/Similarities/rogers.tanimoto
+Similarity, rogers.tanimoto
+Dataset_Name, emotions
+Number_Dataset, 26
+Number_Folds, 10
+Number_Cores, 10

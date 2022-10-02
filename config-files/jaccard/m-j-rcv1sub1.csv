@@ -1,0 +1,9 @@
+Config, Value
+Dataset_Path, /home/elaine/Datasets
+Temporary_Path, /dev/shm/m-j-rcv1sub1
+Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
+Similarity, jaccard
+Dataset_Name, rcv1sub1
+Number_Dataset, 56
+Number_Folds, 10
+Number_Cores, 10

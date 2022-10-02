@@ -1,0 +1,9 @@
+Config, Value
+Dataset_Path, /home/elaine/Datasets
+Temporary_Path, /dev/shm/m-ro-corel16k001
+Similarities_Path, /home/elaine/Partitions/Similarities/rogers.tanimoto
+Similarity, rogers.tanimoto
+Dataset_Name, corel16k001
+Number_Dataset, 12
+Number_Folds, 10
+Number_Cores, 10
