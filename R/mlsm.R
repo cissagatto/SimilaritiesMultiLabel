@@ -30,7 +30,7 @@ cat("\n\n##############################################################")
 cat("\n\n##############################################################")
   cat("\n# MLSM: SET WORK SPACE                                  #")
   cat("\n##############################################################\n\n")
-FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+FolderRoot = "~/SimilaritiesMultiLabel"
 FolderScripts = paste(FolderRoot, "/R", sep="")
 
 
@@ -75,7 +75,7 @@ args <- commandArgs(TRUE)
 # from csv file                                                             #
 #############################################################################
 
-# config_file = "~/SimilaritiesMeasuresMultiLabel/config-files/jaccard/j-GpositiveGO.csv"
+# config_file = "~/SimilaritiesMultiLabel/config-files/jaccard/j-GpositiveGO.csv"
 
 config_file <- args[1]
 

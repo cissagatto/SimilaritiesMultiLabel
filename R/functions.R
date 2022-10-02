@@ -21,7 +21,7 @@
 ###############################################################################
 
 
-FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+FolderRoot = "~/SimilaritiesMultiLabel"
 FolderScripts = paste(FolderRoot, "/R", sep="")
 
 # proporção de 1s que ambas as variáveis compartilham nas mesmas posições

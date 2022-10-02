@@ -20,7 +20,7 @@
 #
 ###############################################################################
 
-FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+FolderRoot = "~/SimilaritiesMultiLabel"
 FolderScripts = paste(FolderRoot, "/R", sep="")
 
 
@@ -40,8 +40,9 @@ directories <- function(parameters){
 
   retorno = list()
   
-  FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
-  retorno$FolderRoot = FolderRoot
+  FolderRoot = "~/SimilaritiesMultiLabel"
+  FolderScripts = paste(FolderRoot, "/R", sep="")
+  
   
   FolderScripts = paste(FolderRoot, "/R", sep="")
   retorno$FolderScripts = FolderScripts

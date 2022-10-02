@@ -1,7 +1,7 @@
 Config, Value
-Dataset_Path, "~/SimilaritiesMeasuresMultiLabel/Datasets"
+Dataset_Path, "~/SimilaritiesMultiLabel/Datasets"
 Temporary_Path, "/dev/shm/m-j-GpositiveGO"
-Similarities_Path, "/SimilaritiesMeasuresMultiLabel/Similarities/jaccard"
+Similarities_Path, "/SimilaritiesMultiLabel/Similarities/jaccard"
 Similarity, jaccard
 Dataset_Name, GpositiveGO
 Number_Dataset, 41

@@ -21,7 +21,7 @@
 ###############################################################################
 
 
-FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+FolderRoot = "~/SimilaritiesMultiLabel"
 FolderScripts = paste(FolderRoot, "/R", sep="")
 
 
@@ -34,7 +34,7 @@ FolderScripts = paste(FolderRoot, "/R", sep="")
 ##################################################################################################
 execute <- function(parameters){
   
-  FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+  FolderRoot = "~/SimilaritiesMultiLabel"
   FolderScripts = paste(FolderRoot, "/R", sep="")
   
   if(parameters$Number.Cores  == 0){
@@ -89,7 +89,7 @@ execute <- function(parameters){
     
     cat("\nFold ", f)
     
-    FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+    FolderRoot = "~/SimilaritiesMultiLabel"
     FolderScripts = paste(FolderRoot, "/R", sep="")
     
     setwd(FolderScripts)

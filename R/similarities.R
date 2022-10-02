@@ -21,7 +21,7 @@
 ###############################################################################
 
 
-FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+FolderRoot = "~/SimilaritiesMultiLabel"
 FolderScripts = paste(FolderRoot, "/R", sep="")
 
 # nomes das funções

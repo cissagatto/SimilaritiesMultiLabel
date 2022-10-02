@@ -23,10 +23,7 @@ rm(list = ls())
 ###############################################################################
 
 
-cat("\n\n##############################################################")
-cat("\n# MLSM: SET WORK SPACE                                  #")
-cat("\n##############################################################\n\n")
-FolderRoot = "~/SimilaritiesMeasuresMultiLabel"
+FolderRoot = "~/SimilaritiesMultiLabel"
 FolderScripts = paste(FolderRoot, "/R", sep = "")
 
 
