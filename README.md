@@ -1,8 +1,8 @@
-# Similarities MultiLabel
-This code is part of my PhD research at PPG-CC/DC/UFSCar. The aim is to compute label similarities measures for multilabel classification using only the label space!
+# Compute Similarities Matrices for MultiLabel Classification
+This code is part of my PhD research at PPG-CC/DC/UFSCar. The aim is to compute similarities measures for multilabel classification using only the label space!
 
 ## How to cite 
-@misc{Gatto2022, author = {Gatto, E. C.}, title = {Compute Similarities Measures for Multi-Label Problems}, year = {2022}, publisher = {GitHub}, journal = {GitHub repository}, howpublished = {\url{https://github.com/cissagatto/SimilaritiesMeasuresMultiLabel}}}
+@misc{Gatto2023, author = {Gatto, E. C.}, title = {Compute Similarities Measures for Multi-Label Classification}, year = {2023}, publisher = {GitHub}, journal = {GitHub repository}, howpublished = {\url{https://github.com/cissagatto/SimilaritiesMultiLabel}}}
 
 ## Source Code
 This code source is composed of the project R to be used in RStudio IDE and also the following scripts R:
@@ -17,10 +17,11 @@ This code source is composed of the project R to be used in RStudio IDE and also
 8. jobs.R
 
 
+
 ## Preparing your experiment
 
 ### STEP 1
-A file called _datasets-original.csv_ must be in the *root project folder*. This file is used to read information about the datasets and they are used in the code. We have 90 multilabel datasets in this _.csv_ file. If you want to use another dataset, please, add the following information about the dataset in the file:
+A file called _datasets-original.csv_ must be in the *root project directory*. This file is used to read information about the datasets and they are used in the code. We have 90 multilabel datasets in this _.csv_ file. If you want to use another dataset, please, add the following information about the dataset in the file:
 
 
 | Parameter    | Status    | Description                                           |
@@ -32,37 +33,40 @@ A file called _datasets-original.csv_ must be in the *root project folder*. This
 | Attributes   | mandatory | Total number of dataset attributes                    |
 | Labels       | mandatory | Total number of labels in the label space             |
 | Inputs       | mandatory | Total number of dataset input attributes              |
-| Cardinality  | optional  |                                                       |
-| Density      | optional  |                                                       |
-| Labelsets    | optional  |                                                       |
-| Single       | optional  |                                                       |
-| Max.freq     | optional  |                                                       |
-| Mean.IR      | optional  |                                                       | 
-| Scumble      | optional  |                                                       | 
-| TCS          | optional  |                                                       | 
-| AttStart     | mandatory | Column number where the attribute space begins*       | 
+| Cardinality  | optional  | **                                                    |
+| Density      | optional  | **                                                    |
+| Labelsets    | optional  | **                                                    |
+| Single       | optional  | **                                                    |
+| Max.freq     | optional  | **                                                    |
+| Mean.IR      | optional  | **                                                    | 
+| Scumble      | optional  | **                                                    | 
+| TCS          | optional  | **                                                    | 
+| AttStart     | mandatory | Column number where the attribute space begins * 1    | 
 | AttEnd       | mandatory | Column number where the attribute space ends          |
 | LabelStart   | mandatory | Column number where the label space begins            |
 | LabelEnd     | mandatory | Column number where the label space ends              |
-| Distinct     | optional  |                                                       |
+| Distinct     | optional  | ** 2                                                  |
 | xn           | mandatory | Value for Dimension X of the Kohonen map              | 
 | yn           | mandatory | Value for Dimension Y of the Kohonen map              |
 | gridn        | mandatory | X times Y value. Kohonen's map must be square         |
 | max.neigbors | mandatory | The maximum number of neighbors is given by LABELS -1 |
 
 
-* Because it is the first column the number is always 1.
+1 - Because it is the first column the number is always 1.
+
+2 - [Click here](https://link.springer.com/book/10.1007/978-3-319-41111-8) to get explanation about each property.
 
 
 ### STEP 2
-To run this experiment you need the _X-Fold Cross-Validation_ files and they must be compacted in **tar.gz** format. You can download these files, with 10-folds, ready for multiple multilabel dataset by clicking [here](https://www.4shared.com/folder/ypgzwzjq/datasets-cross-validation.html). For a new dataset, in addition to including it in the **datasets-original.csv** file, you must also run this code [here](https://github.com/cissagatto/crossvalidationmultilabel). In the repository in question you will find all the instructions needed to generate the files in the format required for this experiment. The **tar.gz** file can be placed on any folder on your computer or cluster. The absolute path of the file should be passed as a parameter in the configuration file that will be read by **macroF1.R** script. The dataset will be loaded from there.
+To run this experiment you need the _X-Fold Cross-Validation_ files and they must be compacted in **tar.gz** format. You can download these files, with 10-folds, ready for multilabel dataset by clicking [here](https://www.4shared.com/directory/ypgzwzjq/datasets-cross-validation.html). For a new dataset, in addition to including it in the **datasets-original.csv** file, you must also run this code [here](https://github.com/cissagatto/crossvalidationmultilabel). In the repository in question you will find all the instructions needed to generate the files in the format required for this experiment. The **tar.gz** file can be placed on any directory on your computer or server. The absolute path of the file should be passed as a parameter in the configuration file that will be read by **mlsm.R** script. The dataset folds will be loaded from there.
 
-### STEP 3
-You need to have installed all the R packages required to execute this code on your machine. Check out which are needed in the file *libraries.R*. This code does not provide any type of automatic package installation! You can use the Conda environment that I created to perform this experiment. Below are the links to download the files.
 
-| [download txt](https://www.4shared.com/s/fUCVTl13zea) | [download yml](https://www.4shared.com/s/f8nOZyxj9iq) | [download yaml](https://www.4shared.com/s/fk5Io4faLiq) |
 
-Try to use the command below to extract the environment to your computer:
+
+### STEP 4
+You need to have installed all the Java, Python and R packages required to execute this code on your machine or server. This code does not provide any type of automatic package installation!
+
+You can use the [Conda Environment](https://1drv.ms/u/s!Aq6SGcf6js1mw4hbhU9Raqarl8bH8Q?e=IA2aQs) that I created to perform this experiment. Below are the links to download the files. Try to use the command below to extract the environment to your computer:
 
 ```
 conda env create -file AmbienteTeste.yaml
@@ -70,24 +74,33 @@ conda env create -file AmbienteTeste.yaml
 
 See more information about Conda environments [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) 
 
+You can also run this code using the AppTainer [container](https://1drv.ms/u/s!Aq6SGcf6js1mw4hcVuz_IN8_Bh1oFQ?e=5NuyxX) that I'm using to run this code in a SLURM cluster. Please, check this [tutorial](https://rpubs.com/cissagatto/apptainer-slurm-r) (in portuguese) to see how to do that. 
 
-### STEP 4
+
+
+
+
+### STEP 5
 To run this code you will need a configuration file saved in *csv* format and with the following information:
 
-| Config            | Value                                                                     | 
-|-------------------|---------------------------------------------------------------------------| 
-| Dataset_Path      | Absolute path to the folder where the dataset's tar.gz is stored          |
-| Temporary_Path    | Absolute path to the folder where temporary processing will be performed* |
-| Similarities_Path | Absolute path to the folder where partitions are store                    |
-| Similarity        | Choose which one to run: jaccard, rogers, random1 and random2             |
-| Dataset_Name      | Dataset name according to *datasets-original.csv* file                    |
-| Number_Dataset    | Dataset number according to *datasets-original.csv* file                  |
-| Number_Folds      | Number of folds used in cross validation                                  |
-| Number_Cores      | Number of cores for parallel processing                                   |
+| Config          | Value                                                                            | 
+|-----------------|----------------------------------------------------------------------------------| 
+| Dataset_Path    | Absolute path to the directory where the dataset's tar.gz is stored              |
+| Temporary_Path  | Absolute path to the directory where temporary processing will be performed * 1  |
+| Similarity_Path | Absolute path to the directory where the similarities matrices are               |
+| Similarity      | Must be "jaccard", "rogers" or another similarity measure                        |
+| Dataset_Name    | Dataset name according to *dataset-original.csv* file                            |
+| Number_Dataset  | Dataset number according to *dataset-original.csv* file                          |
+| Number_Folds    | Number of folds used in cross validation                                         |
+| Number_Cores    | Number of cores for parallel processing                                          |
 
-* Use folders like */dev/shm*, *tmp* or *scratch* here.
+
+1 - Use directorys like */dev/shm*, *tmp* or *scratch* here.
+
 
 You can save configuration files wherever you want. The absolute path will be passed as a command line argument.
+
+
 
 ## Software Requirements
 This code was develop in RStudio Version 1.4.1106 © 2009-2021 RStudio, PBC "Tiger Daylily" (2389bc24, 2021-02-11) for Ubuntu Bionic Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.8 Chrome/69.0.3497.128 Safari/537.36. The R Language version was: R version 4.1.0 (2021-05-18) -- "Camp Pontanezen" Copyright (C) 2021 The R Foundation for Statistical Computing Platform: x86_64-pc-linux-gnu (64-bit).
@@ -109,7 +122,7 @@ Then the experiment was executed in a cluster at UFSCar.
 The results stored in the folder _SIMILARITIES_ it will be used in the next phase: *BuildDataFrameGraphMLC*. The result for a dataset must be put in the folder *Similarities* in the respective code. Also, must be in "tar.gz" format.
 
 ## RUN
-To run the code, open the terminal, enter the *~/SimilaritiesMeasuresMultiLabel/R* folder, and type
+To run the code, open the terminal, enter the *~/SimilaritiesMultiLabel/R* folder, and type
 
 ```
 Rscript mlsm.R [absolute_path_to_config_file]
@@ -118,14 +131,18 @@ Rscript mlsm.R [absolute_path_to_config_file]
 Example:
 
 ```
-Rscript mlsm.R "~/SimilaritiesMeasuresMultiLabel/config-files/jaccard/m-j-GpositiveGO.csv"
+Rscript mlsm.R "~/SimilaritiesMultiLabel/config-files/jaccard/mj-GpositiveGO.csv"
 ```
 
 ## DOWNLOAD RESULTS
 [Click here]
 
+
 ## Acknowledgment
 This study is financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Finance Code 001
+
+This study is financed in part by the Conselho Nacional de Desenvolvimento Científico e Tecnológico - Brasil (CNPQ) - Process number 200371/2022-3.
+
 
 ## Links
 
