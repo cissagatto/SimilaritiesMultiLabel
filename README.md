@@ -1,5 +1,5 @@
-# SimilaritiesMeasuresMultiLabel
-This code is part of my PhD research at PPG-CC/DC/UFSCar. The aim is to compute similarities measures for multilabel classification using only the label space!
+# Similarities MultiLabel
+This code is part of my PhD research at PPG-CC/DC/UFSCar. The aim is to compute label similarities measures for multilabel classification using only the label space!
 
 ## How to cite 
 @misc{Gatto2022, author = {Gatto, E. C.}, title = {Compute Similarities Measures for Multi-Label Problems}, year = {2022}, publisher = {GitHub}, journal = {GitHub repository}, howpublished = {\url{https://github.com/cissagatto/SimilaritiesMeasuresMultiLabel}}}
