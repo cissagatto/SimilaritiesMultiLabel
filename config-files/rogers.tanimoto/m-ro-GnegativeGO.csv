@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-ro-GnegativeGO
-Similarities_Path, /home/elaine/Partitions/Similarities/rogers.tanimoto
-Similarity, rogers.tanimoto
-Dataset_Name, GnegativeGO
-Number_Dataset, 39
-Number_Folds, 10
-Number_Cores, 10

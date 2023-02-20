@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-ro-rcv1sub2
-Similarities_Path, /home/elaine/Partitions/Similarities/rogers.tanimoto
-Similarity, rogers.tanimoto
-Dataset_Name, rcv1sub2
-Number_Dataset, 57
-Number_Folds, 10
-Number_Cores, 10

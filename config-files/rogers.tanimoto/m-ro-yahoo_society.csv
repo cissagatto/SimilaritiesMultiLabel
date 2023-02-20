@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-ro-yahoo_society
-Similarities_Path, /home/elaine/Partitions/Similarities/rogers.tanimoto
-Similarity, rogers.tanimoto
-Dataset_Name, yahoo_society
-Number_Dataset, 88
-Number_Folds, 10
-Number_Cores, 10
