@@ -67,7 +67,7 @@ while(s<=length(similarity)){
     cat("\n# Dataset \t", ds$Name)
     cat("\n#===============================================")
     
-    name = paste("m-", sim[s], "-", ds$Name, sep = "")
+    name = paste("m", sim[s], "-", ds$Name, sep = "")
     
     file_name = paste(FolderS, "/", name, ".csv", sep = "")
     
