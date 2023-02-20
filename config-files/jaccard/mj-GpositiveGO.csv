@@ -1,7 +1,7 @@
 Config, Value
-Dataset_Path, /home/elaine/Datasets
+Dataset_Path, /home/biomal/Datasets
 Temporary_Path, /dev/shm/mj-GpositiveGO
-Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
+Similarities_Path, /home/biomal/Partitions/Similarities/jaccard
 Similarity, jaccard
 Dataset_Name, GpositiveGO
 Number_Dataset, 41

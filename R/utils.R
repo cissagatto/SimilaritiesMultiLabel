@@ -226,22 +226,6 @@ directories <- function(parameters){
   }
   
   
-  #############################################################################
-  # FOLDER PARTITIONS                                                         #
-  # "/dev/shm/j-GpositiveGO/Partitions"                                       #
-  #############################################################################
-  folderRS = paste(FolderRoot, "/Similarities", sep="")
-  retorno$folderRS = folderRS
-  if(dir.exists(folderRS) == TRUE){
-    setwd(folderRS)
-    dir_folderRS = dir(folderRS)
-    n_folderRS = length(dir_folderRS)
-  } else {
-    dir.create(folderRS)
-    setwd(folderRS)
-    dir_folderRS = dir(folderRS)
-    n_folderRS = length(dir_folderRS)
-  }
   
   return(retorno)
   gc()

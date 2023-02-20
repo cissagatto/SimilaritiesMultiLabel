@@ -75,7 +75,7 @@ args <- commandArgs(TRUE)
 # from csv file                                                             #
 #############################################################################
 
-# config_file = "~/SimilaritiesMultiLabel/config-files/jaccard/j-GpositiveGO.csv"
+# config_file = "~/SimilaritiesMultiLabel/config-files/jaccard/mj-GpositiveGO.csv"
 
 config_file <- args[1]
 
@@ -276,37 +276,36 @@ str2 = paste("rm -rf ", parameters$Folders$folderDatasets, sep="")
 print(system(str2))
 gc()
 
+
 pasta = paste(parameters$Folders$folderResults, "/",
-              parameters$Dataset.Name, sep="")
+              parameters$Dataset.Name, "-", similarity, sep="")
 if(dir.exists(pasta)==FALSE){dir.create(pasta)}
 
 system(paste("cp -r ", parameters$Folders$folderSimilarities, "/* ",
              parameters$Folders$folderResults, "/",
-             parameters$Dataset.Name,
-             sep=""))
+             parameters$Dataset.Name, "-", similarity, sep=""))
 
 system(paste("rm -r ", parameters$Folders$folderSimilarities, sep=""))
 
-system(paste("rm -r ", parameters$Folders$folderResults,
-             "/", similarity, sep=""))
-
 setwd(parameters$Folders$folderResults)
-system(paste("tar -zcf ", parameters$Dataset.Name, ".tar.gz ",
-             parameters$Dataset.Name, sep=""))
+system(paste("tar -zcf ", parameters$Folders$folderResults, "/",
+             parameters$Dataset.Name, "-", similarity, ".tar.gz ",
+             parameters$Folders$folderResults, "/",
+             parameters$Dataset.Name, "-", similarity, 
+             sep=""))
 
-Folder = "~/SimilaritiesMeasuresMultiLabel/Similarities"
+Folder = "~/SimilaritiesMultiLabel/Similarity-Matrices"
 if(dir.exists(Folder)== FALSE){dir.create(Folder)}
 
 FolderS = paste(Folder, "/", similarity, sep="")
 if(dir.exists(FolderS)== FALSE){dir.create(FolderS)}
 
-system(paste("cp ", parameters$Folders$folderResults,
-             "/", parameters$Dataset.Name, ".tar.gz ",
-             FolderS, "/", sep=""))
+system(paste("cp -r ", parameters$Folders$folderResults,
+             "/", parameters$Dataset.Name, "-", similarity, 
+             ".tar.gz",
+             " ", FolderS, "/", sep=""))
 
-system(paste("rm ", parameters$Folders$folderResults,
-             "/", parameters$Dataset.Name, ".tar.gz ", sep=""))
-
+system(paste("rm -r ", parameters$Folders$folderResults, sep=""))
 
 # cat("\n\n#######################################################")
 # cat("\n# MLSM: COPY TEST TO GOOGLE DRIVE                           #")
