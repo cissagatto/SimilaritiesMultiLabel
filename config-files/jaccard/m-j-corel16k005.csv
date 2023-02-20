@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-j-corel16k005
-Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
-Similarity, jaccard
-Dataset_Name, corel16k005
-Number_Dataset, 16
-Number_Folds, 10
-Number_Cores, 10

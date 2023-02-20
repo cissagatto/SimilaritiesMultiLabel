@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-j-medical
-Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
-Similarity, jaccard
-Dataset_Name, medical
-Number_Dataset, 48
-Number_Folds, 10
-Number_Cores, 10

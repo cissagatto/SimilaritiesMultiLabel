@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-j-enron
-Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
-Similarity, jaccard
-Dataset_Name, enron
-Number_Dataset, 27
-Number_Folds, 10
-Number_Cores, 10

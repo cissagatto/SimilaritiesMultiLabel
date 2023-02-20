@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-j-3s-inter3000
-Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
-Similarity, jaccard
-Dataset_Name, 3s-inter3000
-Number_Dataset, 3
-Number_Folds, 10
-Number_Cores, 10

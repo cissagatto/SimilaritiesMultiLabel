@@ -1,9 +1,0 @@
-Config, Value
-Dataset_Path, /home/elaine/Datasets
-Temporary_Path, /dev/shm/m-j-stackex_coffee
-Similarities_Path, /home/elaine/Partitions/Similarities/jaccard
-Similarity, jaccard
-Dataset_Name, stackex_coffee
-Number_Dataset, 68
-Number_Folds, 10
-Number_Cores, 10
