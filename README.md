@@ -6,6 +6,20 @@ This code is part of my PhD research at **PPG-CC/DC/UFSCar**. The goal is to com
 
 Gatto, E. C. (2023). **Compute Similarities Measures for Multi-Label Classification**. GitHub repository. Available at: [https://github.com/cissagatto/SimilaritiesMultiLabel](https://github.com/cissagatto/SimilaritiesMultiLabel).
 
+## Objectives
+
+The main objective of this project is to provide tools for computing and analyzing similarity measures between labels in multi-label classification problems. By focusing solely on the label space, the project offers a unique perspective on label relationships, independent of the attributes of the data instances.
+
+## Code Features
+
+    Multiple Similarity Measures: Implements several well-known similarity measures for categorical data, such as Jaccard and Rogers.
+
+    Flexible: Easily add or remove similarity measures to customize the analysis for your specific needs.
+
+    Similarity Matrices: The results are stored in similarity matrices, which can be used for further analysis or as inputs for other tasks.
+
+    Documentation: Detailed roxygen documentation to help users understand the functionality and easily modify the code to suit their needs.
+    
 ## Source Code
 
 This code is written in **R** and is designed to run in the **terminal*. The project consists of the following scripts:
