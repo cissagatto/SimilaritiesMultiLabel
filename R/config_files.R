@@ -1,24 +1,28 @@
 rm(list = ls())
 
 ###############################################################################
-# MULTI LABEL SIMILARITIES MEASURES
-# Copyright (C) 2022
-#
-# This code is free software: you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version. This code is distributed in the hope that it will be
-# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-# Public License for more details.
-#
-# Elaine Cecilia Gatto | Prof. Dr. Ricardo Cerri | Prof. Dr. Mauri Ferrandin
-# Federal University of Sao Carlos (UFSCar: https://www2.ufscar.br/) Campus
-# Sao Carlos Computer Department (DC: https://site.dc.ufscar.br/)
-# Program of Post Graduation in Computer Science
-# (PPG-CC: http://ppgcc.dc.ufscar.br/)
-# Bioinformatics and Machine Learning Group
-# (BIOMAL: http://www.biomal.ufscar.br/)
+# MULTI LABEL SIMILARITIES MEASURES - CATEGORIAL DATA - LABEL SPACE           #
+# Copyright (C) 2025                                                          #
+#                                                                             #
+# This code is free software: you can redistribute it and/or modify it under  #
+# the terms of the GNU General Public License as published by the Free        #
+# Software Foundation, either version 3 of the License, or (at your option)   #
+# any later version. This code is distributed in the hope that it will be     #
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of      #
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General    #
+# Public License for more details.                                            #
+#                                                                             #
+# Profa. Dra. Elaine Cecilia Gatto                                            #
+# Federal University of Lavras (UFLA) Campus Lavras - Minas Gerais            #
+# Applied Computer Department (DAC)                                           #
+#                                                                             #
+# Prof. Dr. Ricardo Cerri                                                     #
+#                                                                             #
+# Prof. Dr. Mauri Ferrandin                                                   #
+#                                                                             #
+# Prof. Dr. Alan Demetrius                                                    #
+# Federal University of Sao Carlos (UFSCar) Campus Sao Carlos - São Paulo     #
+# Computer Department (DC)                                                    # 
 #
 ###############################################################################
 
@@ -57,7 +61,7 @@ while(s<=length(similarity)){
   FolderS = paste(FolderCF, "/", similarity[s], sep = "")
   if (dir.exists(FolderS) == FALSE) {dir.create(FolderS)}
   
-  d = 1
+  d = 26
   while (d <= n) {
     
     ds = datasets[d, ]
@@ -67,7 +71,7 @@ while(s<=length(similarity)){
     cat("\n# Dataset \t", ds$Name)
     cat("\n#===============================================")
     
-    name = paste("m", sim[s], "-", ds$Name, sep = "")
+    name = paste("sm", sim[s], "-", ds$Name, sep = "")
     
     file_name = paste(FolderS, "/", name, ".csv", sep = "")
     
@@ -77,13 +81,14 @@ while(s<=length(similarity)){
     
     # write("Dataset_Path, /home/u704616/Datasets", file = output.file, append = TRUE)
     
-    write("Dataset_Path, /home/elaine/Datasets", 
+    write("Dataset_Path, ~/SimilaritiesMultiLabel/Datasets", 
           file = output.file, append = TRUE)
     
     # folder_name = paste("\"/scratch/", job_name, "\"", sep = "")
     # folder_name = paste("~/Exhaustive-MiF1-ECC/", job_name, sep = "")
     # folder_name = paste("~/tmp/", job_name, sep = "")
-    folder_name = paste("/dev/shm/", name, sep = "")
+    # folder_name = paste("/dev/shm/", name, sep = "")
+    folder_name = paste("/tmp/", name, sep = "")
     # folder_name = paste("/scratch/", job_name, sep = "")
     
     # pasta para fazer o processamento
@@ -91,7 +96,7 @@ while(s<=length(similarity)){
     write(str1, file = output.file, append = TRUE)
     
     # pasta para salvar os resultados finais
-    str5 = paste("/home/elaine/Partitions/Similarities/", 
+    str5 = paste("~/SimilaritiesMultilabel/Similarities/", 
                  similarity[s], sep = "")
     str2 = paste("Similarities_Path, ", str5, sep = "")
     write(str2, file = output.file, append = TRUE)
@@ -111,7 +116,13 @@ while(s<=length(similarity)){
     write("Number_Folds, 10", file = output.file, append = TRUE)
     
     # Number of cores to use for parallel processing
-    write("Number_Cores, 10", file = output.file, append = TRUE)
+    write("Number_Cores, 1", file = output.file, append = TRUE)
+    
+    # Number of cores to use for parallel processing
+    write("Rclone, 0", file = output.file, append = TRUE)
+    
+    # Number of cores to use for parallel processing
+    write("Save_csv, 1", file = output.file, append = TRUE)
     
     # finish writing to the configuration file
     close(output.file)
@@ -125,8 +136,6 @@ while(s<=length(similarity)){
   s = s + 1
   gc()
 }
-
-
 
 
 rm(list = ls())

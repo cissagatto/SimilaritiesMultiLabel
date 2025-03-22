@@ -1,0 +1,11 @@
+Config, Value
+Dataset_Path, ~/SimilaritiesMultiLabel/Datasets
+Temporary_Path, /tmp/smj-GnegativeGO
+Similarities_Path, ~/SimilaritiesMultilabel/Similarities/jaccard
+Similarity, jaccard
+Dataset_Name, GnegativeGO
+Number_Dataset, 39
+Number_Folds, 10
+Number_Cores, 1
+Rclone, 0
+Save_csv, 1

@@ -4,28 +4,31 @@ cat("\n\n##############################################################")
   cat("\n# START COMPUTING MULTI LABEL SIMILARITIES MEASURES          #")
   cat("\n##############################################################\n\n")
 
-###############################################################################
-# MULTI LABEL SIMILARITIES MEASURES
-# Copyright (C) 2022
-#
-# This code is free software: you can redistribute it and/or modify it under
-# the terms of the GNU General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option)
-# any later version. This code is distributed in the hope that it will be
-# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-# Public License for more details.
-#
-# Elaine Cecilia Gatto | Prof. Dr. Ricardo Cerri | Prof. Dr. Mauri Ferrandin
-# Federal University of Sao Carlos (UFSCar: https://www2.ufscar.br/) Campus
-# Sao Carlos Computer Department (DC: https://site.dc.ufscar.br/)
-# Program of Post Graduation in Computer Science
-# (PPG-CC: http://ppgcc.dc.ufscar.br/)
-# Bioinformatics and Machine Learning Group
-# (BIOMAL: http://www.biomal.ufscar.br/)
-#
-###############################################################################
-
+  ###############################################################################
+  # MULTI LABEL SIMILARITIES MEASURES - CATEGORIAL DATA - LABEL SPACE           #
+  # Copyright (C) 2025                                                          #
+  #                                                                             #
+  # This code is free software: you can redistribute it and/or modify it under  #
+  # the terms of the GNU General Public License as published by the Free        #
+  # Software Foundation, either version 3 of the License, or (at your option)   #
+  # any later version. This code is distributed in the hope that it will be     #
+  # useful, but WITHOUT ANY WARRANTY; without even the implied warranty of      #
+  # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General    #
+  # Public License for more details.                                            #
+  #                                                                             #
+  # Profa. Dra. Elaine Cecilia Gatto                                            #
+  # Federal University of Lavras (UFLA) Campus Lavras - Minas Gerais            #
+  # Applied Computer Department (DAC)                                           #
+  #                                                                             #
+  # Prof. Dr. Ricardo Cerri                                                     #
+  #                                                                             #
+  # Prof. Dr. Mauri Ferrandin                                                   #
+  #                                                                             #
+  # Prof. Dr. Alan Demetrius                                                    #
+  # Federal University of Sao Carlos (UFSCar) Campus Sao Carlos - São Paulo     #
+  # Computer Department (DC)                                                    # 
+  #
+  ###############################################################################
 
 cat("\n\n##############################################################")
   cat("\n# MLSM: SET WORK SPACE                                  #")
@@ -62,6 +65,10 @@ cat("\n\n##############################################################")
 setwd(FolderRoot)
 datasets <- data.frame(read.csv("datasets-original.csv"))
 
+# ncol(datasets)
+# nrow(datasets)
+# colnames(datasets)
+
 
 cat("\n\n##############################################################")
   cat("\n# MLSM: GET THE ARGUMENTS COMMAND LINE                  #")
@@ -75,9 +82,8 @@ args <- commandArgs(TRUE)
 # from csv file                                                             #
 #############################################################################
 
-# config_file = "~/SimilaritiesMultiLabel/config-files/jaccard/mj-GpositiveGO.csv"
-
 config_file <- args[1]
+# config_file = "~/SimilaritiesMultiLabel/config-files/jaccard/smj-emotions.csv"
 
 if(file.exists(config_file)==FALSE){
   cat("\n################################################################")
@@ -137,6 +143,10 @@ parameters$Number.Folds = number_folds
 number_cores = as.numeric(config$Value[8])
 parameters$Number.Cores = number_cores
 
+# R CLONE
+rclone = as.numeric(config$Value[9])
+parameters$rclone = rclone
+
 # DATASET_INFO
 ds = datasets[number_dataset,]
 parameters$Dataset.Info = ds
@@ -152,6 +162,7 @@ cat("\n# DATASET NAME:  \t", dataset_name)
 cat("\n# NUMBER DATASET: \t", number_dataset)
 cat("\n# NUMBER X-FOLDS CROSS-VALIDATION: \t", number_folds)
 cat("\n# NUMBER CORES: \t", number_cores)
+cat("\n# RCLONE: \t", rclone)
 cat("\n################################################################\n\n")
 
 
@@ -206,7 +217,7 @@ if(file.exists(str00)==FALSE){
     cat("\nError: ", str01)
     break
   }
-
+  
   # DESCOMPACTANDO
   str02 = paste("tar xzf ", diretorios$folderDatasets, "/", ds$Name,
                 ".tar.gz -C ", diretorios$folderDatasets, sep = "")
@@ -275,6 +286,14 @@ cat("\n# MLSM: DELETING DATASET FOLDER                                         #
 str2 = paste("rm -rf ", parameters$Folders$folderDatasets, sep="")
 print(system(str2))
 gc()
+
+if(parameters$rclone==0){
+  # saves to cloud
+  
+} else {
+  # saves in the machine
+  
+}
 
 
 pasta = paste(parameters$Folders$folderResults, "/",

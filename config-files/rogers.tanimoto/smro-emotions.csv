@@ -1,0 +1,11 @@
+Config, Value
+Dataset_Path, ~/SimilaritiesMultiLabel/Datasets
+Temporary_Path, /tmp/smro-emotions
+Similarities_Path, ~/SimilaritiesMultilabel/Similarities/rogers.tanimoto
+Similarity, rogers.tanimoto
+Dataset_Name, emotions
+Number_Dataset, 26
+Number_Folds, 10
+Number_Cores, 1
+Rclone, 0
+Save_csv, 1
