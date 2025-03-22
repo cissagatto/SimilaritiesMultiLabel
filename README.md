@@ -49,10 +49,13 @@ A file called `datasets-original.csv` must be located in the **root project dire
 | **yn**          | mandatory | Value for Dimension Y of the Kohonen map                            |
 | **gridn**       | mandatory | X times Y. Kohonen's map must be square                             |
 | **max.neighbors** | mandatory | The maximum number of neighbors (given by LABELS - 1)                |
+| **Label Dependency** | optional | The dependency between labels in all dataset |
 
 1 - Since it is the first column, the number is always 1.
 
 2 - [Click here](https://link.springer.com/book/10.1007/978-3-319-41111-8) for explanations of each property.
+
+3 - Label Dependency can be calculated like in this paper: Luaces 2012
 
 ### **STEP 2**: X-Fold Cross-Validation Files
 You need **X-Fold Cross-Validation** files in **tar.gz** format. You can download the pre-made 10-fold files for multi-label datasets [here](https://www.4shared.com/directory/ypgzwzjq/datasets-cross-validation.html). For a new dataset, in addition to adding it to the **datasets-original.csv** file, you must run this code [here](https://github.com/cissagatto/crossvalidationmultilabel) to generate the necessary cross-validation files. The **tar.gz** file can be placed in any directory on your computer or server. The absolute path of the file must be passed as a parameter in the configuration file, which will be read by the **mlsm.R** script.
