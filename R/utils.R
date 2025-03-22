@@ -20,7 +20,7 @@
 #                                                                             #
 # Prof. Dr. Alan Demetrius                                                    #
 # Federal University of Sao Carlos (UFSCar) Campus Sao Carlos - São Paulo     #
-# Computer Department (DC)                                                    # 
+# Computer Department (DC)                                                    #
 #
 ###############################################################################
 
@@ -31,7 +31,7 @@ FolderScripts = paste(FolderRoot, "/R", sep="")
 
 #' Set Global Options
 #'
-#' Configures global options, including Java memory allocation, error message display, 
+#' Configures global options, including Java memory allocation, error message display,
 #' and scientific notation handling.
 #'
 #' @return None. Options are set globally in R.
@@ -68,10 +68,10 @@ read_config_file <- function(config_file, datasets) {
     cat("\n# Properly loaded configuration file!  #")
     cat("\n########################################\n\n")
   }
-  
+
   config <- data.frame(read.csv(config_file))  # Read config file into a dataframe
   parameters <- list()  # Initialize an empty list for parameters
-  
+
   # Extract and trim configuration values
   parameters$Path.Dataset <- str_trim(config$Value[1])
   parameters$Folder.Results <- str_trim(config$Value[2])
@@ -83,15 +83,15 @@ read_config_file <- function(config_file, datasets) {
   parameters$Number.Cores <- as.numeric(config$Value[8])
   parameters$rclone <- as.numeric(config$Value[9])
   parameters$Save.Csv.Files <- as.numeric(config$Value[10])
-  
+
   # Retrieve dataset information based on the selected dataset number
   parameters$Dataset.Info <- datasets[parameters$Number.Dataset, ]
-  
+
   # Print dataset info for verification
   cat("\n################################################################\n")
   print(parameters$Dataset.Info)
   cat("\n################################################################\n\n")
-  
+
   return(parameters)
 }
 
@@ -128,22 +128,22 @@ get_directories <- function(parameters) {
 #' @param parameters A list containing configuration settings, including paths.
 #' @return None. Stops execution if the dataset file is missing.
 process_dataset <- function(datasets, parameters) {
-  
-  str00 <- paste(parameters$Path.Dataset, "/", 
+
+  str00 <- paste(parameters$Path.Dataset, "/",
                  parameters$Dataset.Name, ".tar.gz", sep = "")
   str00 <- str_remove(str00, pattern = " ")
   if (!file.exists(str00)) {
     stop(paste("The tar.gz file for the dataset to be processed does not exist! Path entered: ", str00))
-  } 
-  
+  }
+
   str01 = paste("cp ", str00, " ", parameters$Folders$folderDatasets, sep = "")
   res01 = system(str01)
   if (res01 != 0) {
     cat("\nError: ", str01)
     break
   }
-  
-  str02 = paste("tar xzf ", parameters$Folders$folderDatasets, "/", 
+
+  str02 = paste("tar xzf ", parameters$Folders$folderDatasets, "/",
                 parameters$Dataset.Info$Name,
                 ".tar.gz -C ", parameters$Folders$folderDatasets, sep = "")
   res02 = system(str02)
@@ -151,8 +151,8 @@ process_dataset <- function(datasets, parameters) {
     cat("\nError: ", str02)
     break
   }
-  
-  str03 = paste("cp -r ", parameters$Folders$folderDatasets, "/", 
+
+  str03 = paste("cp -r ", parameters$Folders$folderDatasets, "/",
                 parameters$Dataset.Info$Name,
                 "/CrossValidation/* ", parameters$Folders$folderCV, sep="")
   res03 = system(str03)
@@ -160,18 +160,18 @@ process_dataset <- function(datasets, parameters) {
     cat("\nError: ", str03)
     break
   }
-  
-  str04 = paste("cp -r ", parameters$Folders$folderDatasets, "/", 
+
+  str04 = paste("cp -r ", parameters$Folders$folderDatasets, "/",
                 parameters$Dataset.Info$Name,
-                "/LabelSpace/* ", parameters$Folders$folderLabelSpace, 
+                "/LabelSpace/* ", parameters$Folders$folderLabelSpace,
                 sep="")
   res04 = system(str04)
   if (res04 != 0) {
     cat("\nError: ", str04)
     break
   }
-  
-  str05 = paste("cp -r ", parameters$Folders$folderDatasets, "/", 
+
+  str05 = paste("cp -r ", parameters$Folders$folderDatasets, "/",
                 parameters$Dataset.Info$Name,
                 "/NamesLabels/* ", parameters$Folders$folderNamesLabels,
                 sep="")
@@ -180,7 +180,7 @@ process_dataset <- function(datasets, parameters) {
     cat("\nError: ", str05)
     break
   }
-  
+
   str06 = paste("rm -r ", parameters$Folders$folderDatasets,
                 "/", parameters$Dataset.Info$Name, sep="")
   res06 = system(str06)
@@ -188,7 +188,7 @@ process_dataset <- function(datasets, parameters) {
     cat("\nError: ", str06)
     break
   }
-  
+
   str07 = paste("rm ",parameters$Folders$folderDatasets,
                 "/", parameters$Dataset.Info$Name,
                 ".tar.gz", sep = "")
@@ -197,7 +197,7 @@ process_dataset <- function(datasets, parameters) {
     cat("\nError: ", str07)
     break
   }
-  
+
 }
 
 #' Save Runtime Information
@@ -252,32 +252,30 @@ save_to_storage <- function(parameters) {
 #' @param parameters A list containing paths and similarity settings.
 #' @return None. Saves the results locally and compresses them into a tar.gz file.
 save_locally <- function(parameters) {
-  
+
   pasta = paste(parameters$Folders$folderResults, "/",
                 parameters$Dataset.Name, "-", parameters$similarity, sep="")
   if(dir.exists(pasta)==FALSE){dir.create(pasta)}
-  
+
   system(paste("cp -r ", parameters$Folders$folderSimilarities, "/* ",
                parameters$Folders$folderResults, "/",
-               parameters$Dataset.Name, "-", 
+               parameters$Dataset.Name, "-",
                parameters$similarity, sep=""))
-  
+
   setwd(parameters$Folders$folderResults)
   system(paste("tar -cjvf ", parameters$Folders$folderResults, "/",
                parameters$Dataset.Name, "-", parameters$similarity, ".tar.gz -C ",
                parameters$Folders$folderResults, "/",
                parameters$Dataset.Name, "-", parameters$similarity, " . ",sep=""))
-  
-  # cp /caminho/da/pasta/original/arquivo.tar.gz /caminho/da/pasta/destino/
 
-  # emotions-jaccard.tar.gz
   system(paste("cp -v ", parameters$Folders$folderResults, "/",
-               parameters$Dataset.Info$Name, "-", parameters$similarity,
+               parameters$Dataset.Info$Name,
+               "-", parameters$similarity,
                ".tar.gz ",
-               parameters$Path.Similarities, sep=""))
-  
+               parameters$Folders$folderHomeSimilarities, sep=""))
+
   system(paste("rm -r ", parameters$Folders$folderResults, sep=""))
-  
+
 }
 
 
@@ -295,37 +293,37 @@ final_cleanup <- function(directories) {
 
 
 #' Create Necessary Directories for the Project
-#' 
-#' This function creates and manages all required directories for the project, ensuring that 
+#'
+#' This function creates and manages all required directories for the project, ensuring that
 #' the necessary folder structure exists before running further processes.
-#' 
+#'
 #' @param parameters A list containing the key `Folder.Results`, which is the root directory for saving results.
-#' 
+#'
 #' @return A list with paths to all created directories.
-#' 
+#'
 #' @examples
 #' params <- list(Folder.Results = "/tmp/birds")
 #' directories(params)
-#' 
+#'
 #' @export
 
 directories <- function(parameters) {
   retorno <- list()
-  
+
   # Define root directories
   FolderRoot <- "~/SimilaritiesMultiLabel"
   retorno$FolderScripts <- file.path(FolderRoot, "R")
-  
+
   # Define results directory
   folderResults <- parameters$Folder.Results
   retorno$folderResults <- folderResults
-  
+
   # Function to create a directory if it does not exist
   create_if_missing <- function(folder) {
     if (!dir.exists(folder)) dir.create(folder, recursive = TRUE)
     return(folder)
   }
-  
+
   # Create and store dataset-related directories
   retorno$folderDatasets <- create_if_missing(file.path(folderResults, "datasets"))
   retorno$folderLabelSpace <- create_if_missing(file.path(retorno$folderDatasets, "LabelSpace"))
@@ -335,7 +333,8 @@ directories <- function(parameters) {
   retorno$folderCVTS <- create_if_missing(file.path(retorno$folderCV, "Ts"))
   retorno$folderCVVL <- create_if_missing(file.path(retorno$folderCV, "Vl"))
   retorno$folderSimilarities <- create_if_missing(file.path(folderResults, "Similarities"))
-  
+  retorno$folderHomeSimilarities <- create_if_missing(file.path(FolderRoot, "Similarities"))
+
   return(retorno)
 }
 
@@ -359,57 +358,57 @@ directories <- function(parameters) {
 #' }
 #' @examples
 #' # Example usage:
-#' parameters <- list(Folders = list(folderCVTR = "path/to/folder"), ds = list(LabelStart = 1, LabelEnd = 2), 
+#' parameters <- list(Folders = list(folderCVTR = "path/to/folder"), ds = list(LabelStart = 1, LabelEnd = 2),
 #'                    dataset_name = "dataset", number_folds = 5, folderResults = "path/to/results")
 #' result <- labelSpace(parameters)
 #' result$NamesLabels
 #' result$Classes
-#' 
+#'
 #' @export
 labelSpace <- function(parameters){
-  
+
   result = list()  # Initialize the result list to store output
-  
+
   # Initialize a list to store labels for each fold
   classes = list()
-  
+
   # Loop through each fold (from the first to the last)
   k = 1
   while(k <= parameters$Number.Folds){
-    
+
     # Change the working directory to the folder containing the training data
     setwd(parameters$Folders$folderCVTR)
-    
+
     # Construct the filename for the current fold (e.g., "dataset_name-Split-Tr-1.csv")
     file_name = paste(parameters$Dataset.Name, "-Split-Tr-", k, ".csv", sep="")
-    
+
     # Read the dataset corresponding to the current fold into a dataframe
     data_file = data.frame(read.csv(file_name))
-    
+
     # Separate the label space from the input space
     classes[[k]] = data_file[, parameters$Dataset.Info$LabelStart:parameters$Dataset.Info$LabelEnd]
-    
+
     # Get the names of the labels (column names of the label space)
     label_names = c(colnames(classes[[k]]))
-    
+
     # Increment the fold counter
     k = k + 1
-    
+
     # Perform garbage collection to free memory (optional but can be helpful for large datasets)
     gc()
-    
+
   }  # End of the loop over the folds
-  
+
   # Store the result in the return list
   result$NamesLabels = label_names
   result$Classes = classes
-  
+
   # Return the final result
   return(result)
-  
+
   # Perform garbage collection again before finishing (optional)
   gc()
-  
+
   # Print ending message (for debugging/logging)
   cat("\n################################################################")
   cat("\n# FUNCTION LABEL SPACE: END                                    #")
@@ -450,32 +449,32 @@ labelSpace <- function(parameters){
 #'   \item \code{max.neighbor}: The maximum number of neighbors for the dataset.
 #'   \item \code{LabelDependency}: Dependency between labels in the dataset.
 #' }
-#' 
+#'
 #' @return A list containing all the relevant information from the dataset, including IDs, names, attributes, and various dataset-specific metrics.
-#' 
+#'
 #' @examples
 #' # Example usage:
-#' dataset <- list(ID = "1", Name = "Dataset1", Domain = "text", 
-#'                 Instances = 100, Attributes = "23", Labels = 3, 
-#'                 Inputs = 20, Cardinality = 5, Density = 0.9, 
-#'                 LabelsSets = 5, Single = TRUE, MaxFreq = 10, 
+#' dataset <- list(ID = "1", Name = "Dataset1", Domain = "text",
+#'                 Instances = 100, Attributes = "23", Labels = 3,
+#'                 Inputs = 20, Cardinality = 5, Density = 0.9,
+#'                 LabelsSets = 5, Single = TRUE, MaxFreq = 10,
 #'                 MeanIR = 0.75, Scumble = 1.2, TCS = 2.3,
-#'                 AttStart = 1, AttEnd = 20, LabelStart = 21, 
-#'                 LabelEnd = 23, Distinct = 10, 
-#'                 xn = 4, yn = 4, gridn = 16, 
+#'                 AttStart = 1, AttEnd = 20, LabelStart = 21,
+#'                 LabelEnd = 23, Distinct = 10,
+#'                 xn = 4, yn = 4, gridn = 16,
 #'                 max.neighbor = 22, LabelDependency = 0.89)
 #' result <- infoDataSet(dataset)
 #' result$ID
 #' result$Name
 #' result$max.neighbor
 #' result$LabelDependency
-#' 
+#'
 #' @export
 infoDataSet <- function(dataset) {
-  
+
   # Initialize the result list
   result = list()
-  
+
   # Assign each relevant dataset field to the result
   result$id = dataset$ID
   result$name = dataset$Name
@@ -502,10 +501,10 @@ infoDataSet <- function(dataset) {
   result$gridn = dataset$gridn
   result$max.neighbor = dataset$max.neighbor  # Maximum number of neighbors
   result$labelDependency = dataset$LabelDependency  # Dependency between labels
-  
+
   # Return the result list
   return(result)
-  
+
   # Optional garbage collection after function execution
   gc()
 }

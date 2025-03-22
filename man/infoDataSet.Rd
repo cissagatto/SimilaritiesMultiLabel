@@ -44,14 +44,14 @@ This function retrieves specific information from a dataset, typically stored in
 }
 \examples{
 # Example usage:
-dataset <- list(ID = "1", Name = "Dataset1", Domain = "text", 
-                Instances = 100, Attributes = "23", Labels = 3, 
-                Inputs = 20, Cardinality = 5, Density = 0.9, 
-                LabelsSets = 5, Single = TRUE, MaxFreq = 10, 
+dataset <- list(ID = "1", Name = "Dataset1", Domain = "text",
+                Instances = 100, Attributes = "23", Labels = 3,
+                Inputs = 20, Cardinality = 5, Density = 0.9,
+                LabelsSets = 5, Single = TRUE, MaxFreq = 10,
                 MeanIR = 0.75, Scumble = 1.2, TCS = 2.3,
-                AttStart = 1, AttEnd = 20, LabelStart = 21, 
-                LabelEnd = 23, Distinct = 10, 
-                xn = 4, yn = 4, gridn = 16, 
+                AttStart = 1, AttEnd = 20, LabelStart = 21,
+                LabelEnd = 23, Distinct = 10,
+                xn = 4, yn = 4, gridn = 16,
                 max.neighbor = 22, LabelDependency = 0.89)
 result <- infoDataSet(dataset)
 result$ID

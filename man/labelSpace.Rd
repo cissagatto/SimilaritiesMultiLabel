@@ -28,7 +28,7 @@ This function separates the label space from the rest of the data to be used for
 }
 \examples{
 # Example usage:
-parameters <- list(Folders = list(folderCVTR = "path/to/folder"), ds = list(LabelStart = 1, LabelEnd = 2), 
+parameters <- list(Folders = list(folderCVTR = "path/to/folder"), ds = list(LabelStart = 1, LabelEnd = 2),
                    dataset_name = "dataset", number_folds = 5, folderResults = "path/to/results")
 result <- labelSpace(parameters)
 result$NamesLabels

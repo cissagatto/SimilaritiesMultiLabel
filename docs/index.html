@@ -63,35 +63,92 @@
 <div class="section level2">
 <h2 id="how-to-cite">How to cite<a class="anchor" aria-label="anchor" href="#how-to-cite"></a>
 </h2>
-<p>@misc{Gatto2023, author = {Gatto, E. C.}, title = {Compute Similarities Measures for Multi-Label Classification}, year = {2023}, publisher = {GitHub}, journal = {GitHub repository}, howpublished = {}}</p>
+<pre class="plaintext"><code>@misc{Gatto2023,
+author = {Gatto, E. C.},
+title = {Compute Similarities Measures for Multi-Label Classification},
+year = {2023},
+publisher = {GitHub},
+journal = {GitHub repository},
+howpublished = {\url{https://github.com/cissagatto/SimilaritiesMultiLabel}}}</code></pre>
 </div>
 <div class="section level2">
-<h2 id="source-code">Source Code<a class="anchor" aria-label="anchor" href="#source-code"></a>
+<h2 id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a>
 </h2>
-<p>This code source is composed of the project R to be used in RStudio IDE and also the following scripts R:</p>
-<ol style="list-style-type: decimal">
-<li>libraries.R</li>
-<li>utils.R</li>
-<li>functions.R</li>
-<li>similarities.R</li>
-<li>run.R</li>
-<li>sml.R</li>
-<li>config_files.R</li>
-<li>jobs.R</li>
-</ol>
+<p>The main objective of this project is to provide tools for computing and analyzing similarity measures between labels in multi-label classification problems. By focusing solely on the label space, the project offers a unique perspective on label relationships, independent of the attributes of the data instances.</p>
 </div>
+<div class="section level2">
+<h2 id="code-features">Code Features<a class="anchor" aria-label="anchor" href="#code-features"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>Multiple Similarity Measures<span class="sc">:</span> Implements several well<span class="sc">-</span>known similarity measures <span class="cf">for</span> categorical data, such as Jaccard and Rogers.</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>Flexible<span class="sc">:</span> Easily add or remove similarity measures to customize the analysis <span class="cf">for</span> your specific needs.</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>Similarity Matrices<span class="sc">:</span> The results are stored <span class="cf">in</span> similarity matrices, which can be used <span class="cf">for</span> further analysis or as inputs <span class="cf">for</span> other tasks.</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>Documentation<span class="sc">:</span> Detailed roxygen documentation to help users understand the functionality and easily modify the code to suit their needs.</span></code></pre></div>
+<div class="section level3">
+<h3 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h3>
+<p>For more detailed documentation on each function, check out the <code>~/SimilaritiesMultiLabel/docs</code>folder</p>
+<p>A complete example is available in <code>~/SimilaritiesMultiLabel/examples</code> folder</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="instalation">Instalation<a class="anchor" aria-label="anchor" href="#instalation"></a>
+</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://devtools.r-lib.org/" class="external-link">"devtools"</a></span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"https://github.com/cissagatto/SimilaritiesMultiLabel"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">SimilaritiesMultiLabel</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level1">
+<h1 id="source-code">Source Code<a class="anchor" aria-label="anchor" href="#source-code"></a>
+</h1>
+<p>This source code is part of an R project to be used in the RStudio IDE and includes the following R scripts:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>libraries.R</strong> – Loads the required R packages.<br>
+</li>
+<li>
+<strong>utils.R</strong> – Contains helper functions for processing.<br>
+</li>
+<li>
+<strong>functions.R</strong> – Defines various functions used across the project to handle data and generate results.<br>
+</li>
+<li>
+<strong>similarities.R</strong> – Contains functions for calculating similarity measures between datasets or labels.<br>
+</li>
+<li>
+<strong>run.R</strong> – The main execution script that runs the core logic of the project.<br>
+</li>
+<li>
+<strong>sml.R</strong> – Used to run the script via the terminal.</li>
+<li>
+<strong>config_files.R</strong> – Generates the configuration file needed to run the code.<br>
+</li>
+<li>
+<strong>jobs.R</strong> – If running on a cluster, this script can be used to generate the necessary <code>.sh</code> files to run the job in parallel.</li>
+</ol>
 <div class="section level2">
 <h2 id="preparing-your-experiment">Preparing your experiment<a class="anchor" aria-label="anchor" href="#preparing-your-experiment"></a>
 </h2>
+</div>
+<div class="section level2">
+<h2 id="preparing-your-experiment-1">Preparing Your Experiment<a class="anchor" aria-label="anchor" href="#preparing-your-experiment-1"></a>
+</h2>
 <div class="section level3">
-<h3 id="step-1">STEP 1<a class="anchor" aria-label="anchor" href="#step-1"></a>
+<h3 id="step-1-file-datasets-originalcsv">
+<strong>STEP 1</strong>: File <code>datasets-original.csv</code>
+<a class="anchor" aria-label="anchor" href="#step-1-file-datasets-originalcsv"></a>
 </h3>
-<p>A file called <em>datasets-original.csv</em> must be in the <em>root project directory</em>. This file is used to read information about the datasets and they are used in the code. We have 90 multilabel datasets in this <em>.csv</em> file. If you want to use another dataset, please, add the following information about the dataset in the file:</p>
+<p>A file called <code>datasets-original.csv</code> must be located in the <strong>root project directory</strong>. This file contains information about the datasets used by the code. It includes 90 multi-label datasets. To add a new dataset, include the following information in the file:</p>
 <table class="table">
 <colgroup>
-<col width="16%">
-<col width="13%">
-<col width="69%">
+<col width="14%">
+<col width="11%">
+<col width="73%">
 </colgroup>
 <thead><tr class="header">
 <th>Parameter</th>
@@ -100,152 +157,161 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>Id</td>
+<td><strong>Id</strong></td>
 <td>mandatory</td>
-<td>Integer number to identify the dataset</td>
+<td>Integer ID to identify the dataset</td>
 </tr>
 <tr class="even">
-<td>Name</td>
+<td><strong>Name</strong></td>
 <td>mandatory</td>
-<td>Dataset name (please follow the benchmark)</td>
+<td>Dataset name (must follow the benchmark)</td>
 </tr>
 <tr class="odd">
-<td>Domain</td>
+<td><strong>Domain</strong></td>
 <td>optional</td>
 <td>Dataset domain</td>
 </tr>
 <tr class="even">
-<td>Instances</td>
+<td><strong>Instances</strong></td>
 <td>mandatory</td>
 <td>Total number of dataset instances</td>
 </tr>
 <tr class="odd">
-<td>Attributes</td>
+<td><strong>Attributes</strong></td>
 <td>mandatory</td>
 <td>Total number of dataset attributes</td>
 </tr>
 <tr class="even">
-<td>Labels</td>
+<td><strong>Labels</strong></td>
 <td>mandatory</td>
 <td>Total number of labels in the label space</td>
 </tr>
 <tr class="odd">
-<td>Inputs</td>
+<td><strong>Inputs</strong></td>
 <td>mandatory</td>
-<td>Total number of dataset input attributes</td>
+<td>Total number of input attributes</td>
 </tr>
 <tr class="even">
-<td>Cardinality</td>
+<td><strong>Cardinality</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="odd">
-<td>Density</td>
+<td><strong>Density</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="even">
-<td>Labelsets</td>
+<td><strong>Labelsets</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="odd">
-<td>Single</td>
+<td><strong>Single</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="even">
-<td>Max.freq</td>
+<td><strong>Max.freq</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="odd">
-<td>Mean.IR</td>
+<td><strong>Mean.IR</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="even">
-<td>Scumble</td>
+<td><strong>Scumble</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="odd">
-<td>TCS</td>
+<td><strong>TCS</strong></td>
 <td>optional</td>
 <td>**</td>
 </tr>
 <tr class="even">
-<td>AttStart</td>
+<td><strong>AttStart</strong></td>
 <td>mandatory</td>
 <td>Column number where the attribute space begins * 1</td>
 </tr>
 <tr class="odd">
-<td>AttEnd</td>
+<td><strong>AttEnd</strong></td>
 <td>mandatory</td>
 <td>Column number where the attribute space ends</td>
 </tr>
 <tr class="even">
-<td>LabelStart</td>
+<td><strong>LabelStart</strong></td>
 <td>mandatory</td>
 <td>Column number where the label space begins</td>
 </tr>
 <tr class="odd">
-<td>LabelEnd</td>
+<td><strong>LabelEnd</strong></td>
 <td>mandatory</td>
 <td>Column number where the label space ends</td>
 </tr>
 <tr class="even">
-<td>Distinct</td>
+<td><strong>Distinct</strong></td>
 <td>optional</td>
-<td>** 2</td>
+<td>**</td>
 </tr>
 <tr class="odd">
-<td>xn</td>
+<td><strong>xn</strong></td>
 <td>mandatory</td>
 <td>Value for Dimension X of the Kohonen map</td>
 </tr>
 <tr class="even">
-<td>yn</td>
+<td><strong>yn</strong></td>
 <td>mandatory</td>
 <td>Value for Dimension Y of the Kohonen map</td>
 </tr>
 <tr class="odd">
-<td>gridn</td>
+<td><strong>gridn</strong></td>
 <td>mandatory</td>
-<td>X times Y value. Kohonen’s map must be square</td>
+<td>X times Y. Kohonen’s map must be square</td>
 </tr>
 <tr class="even">
-<td>max.neigbors</td>
+<td><strong>max.neighbors</strong></td>
 <td>mandatory</td>
-<td>The maximum number of neighbors is given by LABELS -1</td>
+<td>The maximum number of neighbors (given by LABELS - 1)</td>
+</tr>
+<tr class="odd">
+<td><strong>Label Dependency</strong></td>
+<td>optional</td>
+<td>The dependency between labels in all dataset</td>
 </tr>
 </tbody>
 </table>
-<p>1 - Because it is the first column the number is always 1.</p>
-<p>2 - <a href="https://link.springer.com/book/10.1007/978-3-319-41111-8" class="external-link">Click here</a> to get explanation about each property.</p>
+<p>1 - Since it is the first column, the number is always 1.</p>
+<p>2 - <a href="https://link.springer.com/book/10.1007/978-3-319-41111-8" class="external-link">Click here</a> for explanations of each property.</p>
+<p>3 - Label Dependency can be calculated like in this paper: Luaces 2012</p>
 </div>
 <div class="section level3">
-<h3 id="step-2">STEP 2<a class="anchor" aria-label="anchor" href="#step-2"></a>
+<h3 id="step-2-x-fold-cross-validation-files">
+<strong>STEP 2</strong>: X-Fold Cross-Validation Files<a class="anchor" aria-label="anchor" href="#step-2-x-fold-cross-validation-files"></a>
 </h3>
-<p>To run this experiment you need the <em>X-Fold Cross-Validation</em> files and they must be compacted in <strong>tar.gz</strong> format. You can download these files, with 10-folds, ready for multilabel dataset by clicking <a href="https://www.4shared.com/directory/ypgzwzjq/datasets-cross-validation.html" class="external-link">here</a>. For a new dataset, in addition to including it in the <strong>datasets-original.csv</strong> file, you must also run this code <a href="https://github.com/cissagatto/crossvalidationmultilabel" class="external-link">here</a>. In the repository in question you will find all the instructions needed to generate the files in the format required for this experiment. The <strong>tar.gz</strong> file can be placed on any directory on your computer or server. The absolute path of the file should be passed as a parameter in the configuration file that will be read by <strong>mlsm.R</strong> script. The dataset folds will be loaded from there.</p>
+<p>You need <strong>X-Fold Cross-Validation</strong> files in <strong>tar.gz</strong> format. You can download the pre-made 10-fold files for multi-label datasets <a href="https://www.4shared.com/directory/ypgzwzjq/datasets-cross-validation.html" class="external-link">here</a>. For a new dataset, in addition to adding it to the <strong>datasets-original.csv</strong> file, you must run this code <a href="https://github.com/cissagatto/crossvalidationmultilabel" class="external-link">here</a> to generate the necessary cross-validation files. The <strong>tar.gz</strong> file can be placed in any directory on your computer or server. The absolute path of the file must be passed as a parameter in the configuration file, which will be read by the <strong>mlsm.R</strong> script.</p>
 </div>
 <div class="section level3">
-<h3 id="step-4">STEP 4<a class="anchor" aria-label="anchor" href="#step-4"></a>
+<h3 id="step-3-environment">
+<strong>STEP 3</strong>: Environment<a class="anchor" aria-label="anchor" href="#step-3-environment"></a>
 </h3>
-<p>You need to have installed all the Java, Python and R packages required to execute this code on your machine or server. This code does not provide any type of automatic package installation!</p>
-<p>You can use the <a href="https://1drv.ms/u/s!Aq6SGcf6js1mw4hbhU9Raqarl8bH8Q?e=IA2aQs" class="external-link">Conda Environment</a> that I created to perform this experiment. Below are the links to download the files. Try to use the command below to extract the environment to your computer:</p>
-<pre><code>conda env create -file AmbienteTeste.yaml</code></pre>
-<p>See more information about Conda environments <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="external-link">here</a></p>
-<p>You can also run this code using the AppTainer <a href="https://1drv.ms/u/s!Aq6SGcf6js1mw4hcVuz_IN8_Bh1oFQ?e=5NuyxX" class="external-link">container</a> that I’m using to run this code in a SLURM cluster. Please, check this <a href="https://rpubs.com/cissagatto/apptainer-slurm-r" class="external-link">tutorial</a> (in portuguese) to see how to do that.</p>
+<p>You need to install all required <strong>Java</strong>, <strong>Python</strong>, and <strong>R</strong> packages to run this code on your machine or server. The code does not automatically install the packages.</p>
+<p>You can use the <strong>Conda Environment</strong> I created to run the experiment. To install it, use the following command to extract the environment to your machine:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-file</span> AmbienteTeste.yaml</span></code></pre></div>
+<p>For more information about Conda environments, visit the official <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" class="external-link">Conda documentation</a>.</p>
+<p>Alternatively, you can run the code using the <strong>AppTainer</strong> <a href="https://1drv.ms/u/s!Aq6SGcf6js1mw4hcVuz_IN8_Bh1oFQ?e=5NuyxX" class="external-link">container</a> I use for running the code on a SLURM cluster. Check this <a href="https://rpubs.com/cissagatto/apptainer-slurm-r" class="external-link">tutorial</a> (in Portuguese) for more details.</p>
 </div>
 <div class="section level3">
-<h3 id="step-5">STEP 5<a class="anchor" aria-label="anchor" href="#step-5"></a>
+<h3 id="step-5-configuration-file">
+<strong>STEP 5</strong>: Configuration File<a class="anchor" aria-label="anchor" href="#step-5-configuration-file"></a>
 </h3>
-<p>To run this code you will need a configuration file saved in <em>csv</em> format and with the following information:</p>
+<p>You need a configuration file saved in <strong>csv</strong> format containing the following information:</p>
 <table class="table">
 <colgroup>
-<col width="17%">
-<col width="82%">
+<col width="18%">
+<col width="81%">
 </colgroup>
 <thead><tr class="header">
 <th>Config</th>
@@ -253,41 +319,48 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>Dataset_Path</td>
-<td>Absolute path to the directory where the dataset’s tar.gz is stored</td>
+<td><strong>Dataset_Path</strong></td>
+<td>Absolute path to the directory where the dataset tar.gz is stored</td>
 </tr>
 <tr class="even">
-<td>Temporary_Path</td>
-<td>Absolute path to the directory where temporary processing will be performed * 1</td>
+<td><strong>Temporary_Path</strong></td>
+<td>Absolute path to the directory where temporary processing will be done</td>
 </tr>
 <tr class="odd">
-<td>Similarity_Path</td>
-<td>Absolute path to the directory where the similarities matrices are</td>
+<td><strong>Similarity_Path</strong></td>
+<td>Absolute path to the directory where similarity matrices will be stored</td>
 </tr>
 <tr class="even">
-<td>Similarity</td>
-<td>Must be “jaccard”, “rogers” or another similarity measure</td>
+<td><strong>Similarity</strong></td>
+<td>“jaccard”, “rogers”, or another similarity measure</td>
 </tr>
 <tr class="odd">
-<td>Dataset_Name</td>
-<td>Dataset name according to <em>dataset-original.csv</em> file</td>
+<td><strong>Dataset_Name</strong></td>
+<td>Dataset name according to the <strong>datasets-original.csv</strong> file</td>
 </tr>
 <tr class="even">
-<td>Number_Dataset</td>
-<td>Dataset number according to <em>dataset-original.csv</em> file</td>
+<td><strong>Number_Dataset</strong></td>
+<td>Dataset number according to the <strong>datasets-original.csv</strong> file</td>
 </tr>
 <tr class="odd">
-<td>Number_Folds</td>
-<td>Number of folds used in cross validation</td>
+<td><strong>Number_Folds</strong></td>
+<td>Number of folds used in cross-validation</td>
 </tr>
 <tr class="even">
-<td>Number_Cores</td>
+<td><strong>Number_Cores</strong></td>
 <td>Number of cores for parallel processing</td>
+</tr>
+<tr class="odd">
+<td><strong>R_clone</strong></td>
+<td>If you want to upload the results to your nuvem</td>
+</tr>
+<tr class="even">
+<td><strong>Save_csv_files</strong></td>
+<td>If you want to save the resulting csv files in your machine</td>
 </tr>
 </tbody>
 </table>
-<p>1 - Use directorys like <em>/dev/shm</em>, <em>tmp</em> or <em>scratch</em> here.</p>
-<p>You can save configuration files wherever you want. The absolute path will be passed as a command line argument.</p>
+<p>You can save the configuration file anywhere you want and pass the absolute path as a command-line argument.</p>
 </div>
 </div>
 <div class="section level2">
@@ -308,13 +381,13 @@
 <div class="section level2">
 <h2 id="results">Results<a class="anchor" aria-label="anchor" href="#results"></a>
 </h2>
-<p>The results stored in the folder <em>SIMILARITIES</em> it will be used in the next phase: <em>BuildDataFrameGraphMLC</em>. The result for a dataset must be put in the folder <em>Similarities</em> in the respective code. Also, must be in “tar.gz” format.</p>
+<p>The results stored in the folder <em>Similarities</em> it will be used in the next phase: <em>BuildDataFrameGraphMLC</em>. The result for a dataset must be put in the folder <em>Similarities</em> in the respective code. Also, must be in “tar.gz” format.</p>
 </div>
 <div class="section level2">
 <h2 id="run">RUN<a class="anchor" aria-label="anchor" href="#run"></a>
 </h2>
-<p>To run the code, open the terminal, enter the <em>~/SimilaritiesMultiLabel/R</em> folder, and type</p>
-<pre><code>Rscript mlsm.R [absolute_path_to_config_file]</code></pre>
+<p>To run the code, open the terminal, enter the <em>~/SimilaritiesMultiLabel/examples</em> folder, and type</p>
+<pre><code>Rscript sml.R [absolute_path_to_config_file]</code></pre>
 <p>Example:</p>
 <pre><code>Rscript slm.R "~/SimilaritiesMultiLabel/config-files/jaccard/smj-emotions.csv"</code></pre>
 </div>
@@ -324,22 +397,44 @@
 <p>[Click here]</p>
 </div>
 <div class="section level2">
-<h2 id="acknowledgment">Acknowledgment<a class="anchor" aria-label="anchor" href="#acknowledgment"></a>
+<h2 id="id_-contact">📧 <strong>Contact</strong>
+<a class="anchor" aria-label="anchor" href="#id_-contact"></a>
+</h2>
+<p>For any questions or support, please contact: - <strong>Prof. Elaine Cecilia Gatto</strong> (<a href="mailto:elainececiliagatto@gmail.com" class="email">elainececiliagatto@gmail.com</a>)</p>
+</div>
+<div class="section level2">
+<h2 id="download-results-1">Download Results<a class="anchor" aria-label="anchor" href="#download-results-1"></a>
+</h2>
+<p>[Click here]</p>
+</div>
+<div class="section level2">
+<h2 id="acknowledgments">Acknowledgments<a class="anchor" aria-label="anchor" href="#acknowledgments"></a>
 </h2>
 <ul>
-<li>This study was financed in part by the Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brasil (CAPES) - Finance Code 001.</li>
-<li>This study was financed in part by the Conselho Nacional de Desenvolvimento Científico e Tecnológico - Brasil (CNPQ) - Process number 200371/2022-3.</li>
-<li>The authors also thank the Brazilian research agencies FAPESP financial support.</li>
+<li>
+<strong>CAPES</strong> - Coordenação de Aperfeiçoamento de Pessoal de Nível Superior - Brazil (Finance Code 001) 💼</li>
+<li>
+<strong>CNPq</strong> - Conselho Nacional de Desenvolvimento Científico e Tecnológico - Brazil (Process number 200371/2022-3) 💡</li>
+<li>
+<strong>FAPESP</strong> - Financial support 💰</li>
+<li>Special thanks to <strong>UFSCar</strong> and other institutions for their support! 🙏</li>
 </ul>
 </div>
-</div>
-<div class="section level1">
-<h1 id="contact">Contact<a class="anchor" aria-label="anchor" href="#contact"></a>
-</h1>
-<p><a href="mailto:elainececiliagatto@gmail.com" class="email">elainececiliagatto@gmail.com</a></p>
 <div class="section level2">
-<h2 id="links">Links<a class="anchor" aria-label="anchor" href="#links"></a>
+<h2 id="how-can-i-help-">How Can I Help? 🤝<a class="anchor" aria-label="anchor" href="#how-can-i-help-"></a>
 </h2>
+<p>I’m looking for help to improve and optimize this code. The areas where I need assistance include:</p>
+<ul>
+<li>
+<strong>Add or remove similarity measures</strong>: If you know of other similarity measures that could be relevant to this work, your contribution would be greatly appreciated! 🌟</li>
+<li>
+<strong>Check if all 109 categorical data similarity measures are correctly implemented</strong>: I need to verify if all measures have been implemented properly and efficiently, with minimal processing and memory usage. 📊</li>
+<li>
+<strong>Documentation</strong>: Write <strong>roxygen</strong> documentation for all functions to make the code more understandable and easier to use. 📚</li>
+<li>
+<strong>Code Optimization</strong>: Explore if the code can be further optimized for performance and readability. ⚙️</li>
+</ul>
+<p>If you’re interested in collaborating, please feel free to reach out! ✉️ ## Links</p>
 <div class="line-block">
 <a href="https://sites.google.com/view/professor-cissa-gatto" class="external-link">Site</a> | <a href="http://ppgcc.dc.ufscar.br/pt-br" class="external-link">Post-Graduate Program in Computer Science</a> | <a href="https://site.dc.ufscar.br/" class="external-link">Computer Department</a> | <a href="http://www.biomal.ufscar.br/" class="external-link">Biomal</a> | <a href="https://www.gov.br/cnpq/pt-br" class="external-link">CNPQ</a> | <a href="https://kulak.kuleuven.be/" class="external-link">Ku Leuven</a> | <a href="https://www.embarcados.com.br/author/cissa/" class="external-link">Embarcados</a> | <a href="https://prensa.li/@cissa.gatto/" class="external-link">Read Prensa</a> | <a href="https://www.linkedin.com/company/27241216" class="external-link">Linkedin Company</a> | <a href="https://www.linkedin.com/in/elainececiliagatto/" class="external-link">Linkedin Profile</a> | <a href="https://www.instagram.com/cissagatto" class="external-link">Instagram</a> | <a href="https://www.facebook.com/cissagatto" class="external-link">Facebook</a> | <a href="https://twitter.com/cissagatto" class="external-link">Twitter</a> | <a href="https://www.twitch.tv/cissagatto" class="external-link">Twitch</a> | <a href="https://www.youtube.com/CissaGatto" class="external-link">Youtube</a> |</div>
 </div>

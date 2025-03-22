@@ -26,7 +26,7 @@ cat("  \n##############################################################\n\n")
 #                                                                             #
 # Prof. Dr. Alan Demetrius                                                    #
 # Federal University of Sao Carlos (UFSCar) Campus Sao Carlos - São Paulo     #
-# Computer Department (DC)                                                    # 
+# Computer Department (DC)                                                    #
 #
 ###############################################################################
 
@@ -92,15 +92,19 @@ cat("   \n# SML: SAVE RUNTIME                               #")
 cat("   \n####################################################\n\n")
 save_runtime(timeTCP, parameters)
 
+cat("\n\n###################################################################")
+cat("   \n# SML: Save to appropriate location (cloud or machine)          #")
+cat("   \n##################################################################\n\n")
+if(parameters$Save.Csv.Files==1){
+  save_locally(parameters)
+}
+
+
 cat("\n\n##################################################################")
 cat("  \n# SML: DELETING DATASET FOLDER                                  #")
 cat("  \n##################################################################\n\n")
 clean_up(parameters)
 
-cat("\n\n###################################################################")
-cat("   \n# SML: Save to appropriate location (cloud or machine)          #")
-cat("   \n##################################################################\n\n")
-save_to_storage(parameters)
 
 cat("\n\n####################################################")
 cat("  \n# SML: END                                         #")
