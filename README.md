@@ -8,7 +8,7 @@ Gatto, E. C. (2023). **Compute Similarities Measures for Multi-Label Classificat
 
 ## Source Code
 
-This code is written in **R** and is designed to run in the **RStudio IDE**. The project consists of the following scripts:
+This code is written in **R** and is designed to run in the **terminal*. The project consists of the following scripts:
 
 1. **libraries.R**
 2. **utils.R**
